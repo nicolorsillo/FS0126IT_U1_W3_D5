@@ -279,35 +279,34 @@ const isThisAnEmail = (email) => {
     "ù",
     " ",
   ]
-  let j = 0
   for (i = 0; i < charNotAllowed.length; i++) {
     if (email.includes(charNotAllowed[i])) {
-      j++
+      return false
     }
   }
   if (email.includes("@")) {
     let notTwo = email.replace("@", "")
     if (notTwo.includes("@")) {
-      j++
+      return false
     } else {
       if (email.split("@")[0] === "") {
-        j++
+        return false
       } else {
         if (email.split("@")[1].includes(".")) {
           for (i = 0; i < email.split("@")[1].split(".").length; i++) {
             if (email.split("@")[1].split(".")[i] === "") {
-              j++
+              return false
             }
           }
         } else {
-          j++
+          return false
         }
       }
     }
   } else {
-    j++
+    return false
   }
-  return j === 0
+  return true
 }
 console.log(isThisAnEmail("nicolo@email.it"))
 /* ESERCIZIO 8
