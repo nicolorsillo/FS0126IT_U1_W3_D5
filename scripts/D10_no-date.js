@@ -508,7 +508,18 @@ console.log(`
 
 */
 console.log("-------Esercizio 27--------")
-console.log()
+const halfTree = (n) => {
+  let i = 0
+  let tree = ""
+  while (i < n) {
+    tree = tree.concat("*")
+    console.log(tree)
+    i++
+  }
+  return "|"
+}
+
+console.log(halfTree(4))
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
@@ -521,9 +532,55 @@ console.log()
 
 */
 console.log("-------Esercizio 28--------")
-console.log()
+const tree = (n) => {
+  let i = 0
+  let tree = ""
+  let trunk = ""
+  let addAsterisk = (j) => {
+    for (b = 0; b < j; b++) {
+      tree = tree.concat("*")
+    }
+  }
+  for (a = 0; a < n - 1; a++) {
+    tree = tree.concat(" ")
+    trunk = trunk.concat(" ")
+  }
+  while (i < n) {
+    if (i === 0) {
+      addAsterisk(1)
+      console.log(tree)
+      tree = tree.slice(1)
+      i++
+    } else {
+      addAsterisk(2)
+      console.log(tree)
+      tree = tree.slice(1)
+      i++
+    }
+  }
+  // addAsterisk(2)
+  // tree = tree = tree.slice(i, tree.length)
+  // console.log(tree)
+  // i++
+  // }
+  trunk = trunk.concat("|")
+  return trunk
+}
+console.log(tree(4))
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
 console.log("-------Esercizio 29--------")
-console.log()
+
+const isItPrime = (n) => {
+  if (n < 2 || n !== Math.floor(n)) {
+    return "il numero non è un numero primo"
+  }
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      return "il numero non è un numero primo"
+    }
+  }
+  return "il numero è un numero primo"
+}
+console.log(isItPrime(5))
